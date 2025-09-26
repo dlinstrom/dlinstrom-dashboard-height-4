@@ -856,7 +856,9 @@
                 // Update tank visualization using water height
                 const percent = Math.min(100, Math.max(0, (displayValue / MAX_TANK_HEIGHT) * 100));
                 document.getElementById(`tank${num}`).style.height = `${percent}%`;
-                document.getElementById(`percent${num}`).textContent = `${Math.round(percent)}%`;
+                const p = document.getElementById(`percent${num}`);
+                if (p) p.textContent = `${Math.round(percent)}%`;
+
                 
                 // Add to history with water height
                 sensorData.history.push({ 
